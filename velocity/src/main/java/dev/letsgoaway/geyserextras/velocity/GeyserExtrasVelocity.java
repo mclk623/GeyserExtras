@@ -86,17 +86,20 @@ public class GeyserExtrasVelocity implements Server {
         if (IsAvailable.packetevents()) {
             dev.letsgoaway.geyserextras.core.protocol.ProtocolHandler.init();
         }
-
     }
 
     @Subscribe
     public void onProxyReload(ProxyReloadEvent ev) {
-        CORE.autoReconnectAll();
+        if (CORE != null) {
+            CORE.autoReconnectAll();
+        }
     }
 
     @Subscribe
     public void onProxyShutdown(ProxyShutdownEvent ev) {
-        CORE.autoReconnectAll();
+        if (CORE != null) {
+            CORE.autoReconnectAll();
+        }
         if (IsAvailable.packetevents()) {
             dev.letsgoaway.geyserextras.core.protocol.ProtocolHandler.terminate();
         }
