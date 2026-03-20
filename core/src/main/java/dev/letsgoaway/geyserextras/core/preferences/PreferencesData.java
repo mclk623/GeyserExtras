@@ -30,7 +30,7 @@ public class PreferencesData {
 
     private transient final ExtrasPlayer player;
     private transient final GeyserSession session;
-    public CooldownUtils.CooldownType cooldownType = CooldownUtils.CooldownType.TITLE;
+    public CooldownUtils.CooldownType cooldownType = CooldownUtils.CooldownType.CROSSHAIR;
     public boolean showCoordinates;
 
     public boolean advancedTooltips = false;
@@ -38,12 +38,6 @@ public class PreferencesData {
     public boolean customSkullSkins;
 
     public HashMap<Remappable, Action> remappableActionMap;
-    @Getter
-    @Setter
-    private boolean adjustCooldownWithPing = true;
-    @Getter
-    @Setter
-    private float indicatorUpdateRate = 60f;
     @Getter
     @Setter
     private Menus settingsMenuForm = Menus.GE_SETTINGS;
@@ -202,12 +196,10 @@ public class PreferencesData {
     // TODO: figure out literally any better way to do this
     public void copyFrom(PreferencesData data) {
         this.cooldownType = data.cooldownType;
-        this.adjustCooldownWithPing = data.adjustCooldownWithPing;
         this.showCoordinates = data.showCoordinates;
         this.advancedTooltips = data.advancedTooltips;
         this.customSkullSkins = data.customSkullSkins;
         this.remappableActionMap = data.remappableActionMap;
-        this.indicatorUpdateRate = data.indicatorUpdateRate;
         this.settingsMenuForm = data.settingsMenuForm;
         this.enableDoubleClickShortcut = data.enableDoubleClickShortcut;
         this.doubleClickMS = data.doubleClickMS;
